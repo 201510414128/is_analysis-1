@@ -44,7 +44,7 @@ stop
 ```
 ##### 业务流程图如下：
 
-![](./01.png '描述')
+![](./StudentTestSystem.png '描述')
 
 ### 流程图2：客户维修服务流程
 ##### PlantUML源码如下：
@@ -77,4 +77,4 @@ else(否)
 @enduml
 ```
 ##### 业务流程图如下：
-![](./02.png '描述')
+![](./UserMaintenance.png '描述')
