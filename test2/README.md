@@ -40,4 +40,35 @@ rectangle {
     系统管理员不仅具有图书管理员所具有的功能，并且也具有维护图书管理员信息的功能
 ### 3.用例规约表
 #### 3.1 借书用例
+![](./lend.png '描述')
 #### 3.2 还书用例
+![](./return.png '描述')
+#### 还书用例plantUML源码如下：
+```
+@startuml
+start
+:借书者还书;
+:图书管理员;
+if (检查图书是否损坏) then (是)
+:借书者办理赔偿手续;
+else(否)
+:图书管理员输入图书信息;
+fork
+:系统验证图书信息;
+fork again
+:系统验证借书者信息;
+end fork
+fork
+:修改借书信息;
+fork again
+:修改图书状态;
+fork again
+:修改库存数量;
+end fork
+:图书管理员确认图书归还完毕;
+endif
+stop
+@enduml
+```
+#### 还书流程图如下：
+![](./ReturnBook.png '描述')
