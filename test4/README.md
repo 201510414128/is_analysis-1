@@ -10,32 +10,32 @@
 
 ``` sequence
 @startuml
-actor  借书者 as lender
+actor  借书者 as reader
 actor  图书管理员 as bookAdmin
-activate lender
+activate reader
+reader->bookAdmin:readerId
+reader->bookAdmin:bookId
+deactivate reader
 activate bookAdmin
-lender->bookAdmin:提供自身id
-lender->bookAdmin:提供借书id
-deactivate lender
-bookAdmin->图书管理系统:login()
 activate 图书管理系统
-bookAdmin->图书管理系统:1.checkLend(int lendId):查询借书者身份
-bookAdmin->图书管理系统:2.checkBook(int bookId):查询所借书籍是否可借
+bookAdmin->图书管理系统:1.login()
+bookAdmin->图书管理系统:2.checkReader(int readerId)
+bookAdmin->图书管理系统:3.checkBook(int bookId)
 bookAdmin<-图书管理系统:result():true or false
 deactivate bookAdmin
-activate lend
-图书管理系统->lend:3.getLender(int lendId)
-图书管理系统<-lend:result():true or false
+activate record
+图书管理系统->record:4.getReader(int readerId)
+图书管理系统<-record:result():true or false
+图书管理系统->record:5.updateRecord(int readerId,int bookId)
+deactivate record
 activate book
-图书管理系统->book:4.getBook(int bookId)
+图书管理系统->book:6.getBook(int bookId)
 图书管理系统<-book:result():true or false
-图书管理系统->book:5.reduceBook(int bookId)
+图书管理系统->book:7.updateBook(int bookId)
 deactivate book
-图书管理系统->lend:5.updateLend(int lendId,int bookId)
-deactivate lend
-图书管理系统->lender:result
-activate lender
-deactivate lender
+activate reader
+图书管理系统->reader:result():true or false
+deactivate reader
 deactivate 图书管理系统
 @enduml
 ```
@@ -45,14 +45,14 @@ deactivate 图书管理系统
 ## 1.3. 借书用例顺序图说明
 ```
 1. login()：图书管理员登录
-2. checkLend(int lendId)：查询读者的身份是否存在
-3. checkBook(int bookId)：查询该书籍是否存在
-4. result()：返回查询的结果：true or false;
-5. getLender(int lendId)：获取读者身份
+2. checkReader(int readerId)：核查读者
+3. checkBook(int bookId)：核查图书
+4. getReader(int readerId)：获取读者
+5. updateRecord(int bookId,int readerId)：修改读者记录
 6. getBook(int bookId)：获取图书
-7. reduceBook(int bookId)：减少该图书的数量
-8. updateLend(int bookId,int lendId)：修改读者的借书记录
-  ```
+7. updateBook(int bookId)：修改图书 
+8. result()：返回执行结果
+ ```
   
 ## 2. 还书用例
 ## 2.1. 还书用例PlantUML源码
@@ -63,24 +63,24 @@ actor  还书者 as returnBook
 actor  图书管理员 as bookAdmin
 activate returnBook
 activate bookAdmin
-returnBook->bookAdmin:提供自身id
-returnBook->bookAdmin:提供借书id
+returnBook->bookAdmin:readerId
+returnBook->bookAdmin:bookId
 deactivate returnBook
-bookAdmin->图书管理系统:login()
+bookAdmin->图书管理系统:1.login()
 activate 图书管理系统
-bookAdmin->图书管理系统:1.checkLend(int returnId):查询还书者身份
-bookAdmin->图书管理系统:2.checkBook(int bookId):查询所还书籍是否属于该图书馆
+bookAdmin->图书管理系统:2.checkReader(int readerId)
+bookAdmin->图书管理系统:3.checkBook(int bookId)
 bookAdmin<-图书管理系统:result():true or false
 deactivate bookAdmin
-activate lend
-图书管理系统->lend:3.getReturner(int returnId)
-图书管理系统<-lend:result():true or false
-图书管理系统->lend:4.updateLend(int returnId,int bookId)
-deactivate lend
+activate record
+图书管理系统->record:4.getReader(int readerId)
+图书管理系统<-record:result():true or false
+图书管理系统->record:5.updateRecord(int readerId,int bookId)
+deactivate record
 activate book
-图书管理系统->book:5.getBook(int bookId)
+图书管理系统->book:6.getBook(int bookId)
 图书管理系统<-book:result():true or false
-图书管理系统->book:6.addBook(int bookId)
+图书管理系统->book:7.updateBook(int bookId)
 deactivate book
 activate returnBook
 图书管理系统->returnBook:result():true or false
@@ -95,11 +95,11 @@ deactivate 图书管理系统
 ## 2.3. 还书用例顺序图说明
 ```
 1. login()：图书管理员登录
-2. checkLend(int lendId)：查询读者的身份是否存在
-3. checkBook(int bookId)：查询该书籍是否存在
-4. result()：返回查询的结果：true or false;
-5. getReturner(int returnId)：获取读者身份
+2. checkReader(int readerId)：核查读者
+3. checkBook(int bookId)：核查图书
+4. getReader(int readerId)：获取读者
+5. updateRecord(int bookId,int readerId)：修改读者记录
 6. getBook(int bookId)：获取图书
-7. addBook(int bookId)：增加该图书的数量
-8. updateLend(int bookId,int lendId)：修改读者的借书记录
+7. updateBook(int bookId)：修改图书 
+8. result()：返回执行结果
 ```
