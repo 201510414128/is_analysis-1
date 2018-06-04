@@ -29,20 +29,26 @@ class course{
     max_tea  （最多可容纳的教师人数）
     chooseNumber_stu  （选择该课程的学生人数）
     chooseNumber_tea  （选择该课程的教师人数）
+    students（选择该课程的学生列表）
+    teachers（选择该课程的老师列表）
 }
-class grades {
-    <b>student_id</b> （学号）
-    <b>test_id</b> （实验编号）
-    <b>course_id</b> （课程编号）
+class grade {
+    <b>teacher_id</b> （老师编号）
+    <b>grade_id</b> （评分标准编号）
     grade_standrand （评分标准）
     grade_weight （分数所占比重）
-    grade （分数）
-    memo （评价）
-    update_date （评改日期）
+    grade（所得分数）
 }
 class tests {
+    <b>student_id</b> （学生编号）
+    <b>term_id</b> （学期编号）
+    <b>course_id</b> （课程编号）
     <b>test_id</b> （实验编号）
-    title (实验名称)
+    <b>grade_id</b> （实验评分编号）
+    test_title （实验名称）
+    avg （实验平均分）
+    memo （评价）
+    update_date （评改日期）
 }
 class term{
     <b>term_id</b> （学期编号）
@@ -53,12 +59,13 @@ class department{
     department_name （部门名称）
 }
 students "n" -- "n"  course
-tests "1" -- "n"  grades
+tests "1" -- "n"  grade
 course "1" -- "n"  tests
 teachers "n" -- "n"  course
 term "1" -- "n"  course
 students "n" -- "n"  term
 teachers "n" -- "n"  term
-teachers "1" -- "n"  department
+teachers "n" -- "1"  department
+teachers "1" -- "n"  grade
 
 @enduml
