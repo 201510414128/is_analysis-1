@@ -33,7 +33,6 @@ class course{
     teachers（选择该课程的老师列表）
 }
 class grade {
-    <b>teacher_id</b> （老师编号）
     <b>grade_id</b> （评分标准编号）
     grade_standrand （评分标准）
     grade_weight （分数所占比重）
@@ -41,6 +40,7 @@ class grade {
 }
 class tests {
     <b>student_id</b> （学生编号）
+    <b>teacher_id</b> （老师编号）
     <b>term_id</b> （学期编号）
     <b>course_id</b> （课程编号）
     <b>test_id</b> （实验编号）
@@ -66,6 +66,6 @@ term "1" -- "n"  course
 students "n" -- "n"  term
 teachers "n" -- "n"  term
 teachers "n" -- "1"  department
-teachers "1" -- "n"  grade
+teachers "1" -- "n"  tests
 
 @enduml
