@@ -1,1 +1,13 @@
-
+@startuml
+title 基于GitHub的实验管理平台--修改用户信息用例的顺序图
+actor users
+alt 如果users是老师
+    users -> teachers:输入老师工号
+    users <-- teachers: 返回老师信息
+    users -> teachers : 修改并提交老师信息
+else 如果users是学生
+    users -> student : 输入学生学号
+    users <-- student: 返回学生信息
+    users -> student:修改并提交学生信息
+end
+@enduml
