@@ -11,45 +11,43 @@ class users {
 class teachers{
     <b>teacher_id</b> （老师工号）
     department （老师所属部门）
-    courselist （老师选课列表）
-    course_num （规定需选的课程数）
+    result_course   （老师所选课程汇总）
 }
 class students{
-    <b>student_id</b> （学号）
+    <b>student_id</b> （学生学号）
     class （班级）
-    courselist （学生选课列表）
-    course_num （规定需选的课程数）
+    result_course （学生所选课程汇总）
+    web_sum  （学生实验连接是否正确）
 }
 users <|- students
 users <|-- teachers
 class course{
-    <b>course_id</b>  （课程号）
+    <b>course_id</b>  （课程编号）
+    <b>term_id</b>  （学期编号）
     course_name  （课程名称）
-    max_stu （最多可容纳的学生人数）
-    max_tea  （最多可容纳的教师人数）
-    chooseNumber_stu  （选择该课程的学生人数）
-    chooseNumber_tea  （选择该课程的教师人数）
-    students（选择该课程的学生列表）
-    teachers（选择该课程的老师列表）
+    term_id  （学期编号）
+    stu_num  （规定学生需选人数）
+    tea_num  （规定老师需选人数）
+}
+class tests {
+    <b>test_id</b> （实验编号）
+    <b>term_id</b> （学期编号）
+    <b>course_id</b> （课程编号）
+    test_title （实验名称）
 }
 class grade {
+    <b>test_id</b> （实验编号）
+    <b>student_id</b> （学生学号）
+    grade_stand  （成绩评分标准）
+    avg （实验平均分）
+    memo （评价）
+    update_date （评改日期）
+}
+class grade_stand{
     <b>grade_id</b> （评分标准编号）
     grade_standrand （评分标准）
     grade_weight （分数所占比重）
     grade（所得分数）
-}
-class tests {
-    <b>student_id</b> （学生编号）
-    <b>teacher_id</b> （老师编号）
-    <b>term_id</b> （学期编号）
-    <b>course_id</b> （课程编号）
-    <b>test_id</b> （实验编号）
-    <b>grade_id</b> （实验评分编号）
-    test_address （实验地址）
-    test_title （实验名称）
-    avg （实验平均分）
-    memo （评价）
-    update_date （评改日期）
 }
 class term{
     <b>term_id</b> （学期编号）
@@ -59,14 +57,10 @@ class department{
     <b>department_id</b> （部门编号）
     department_name （部门名称）
 }
-students "n" -- "n"  course
-tests "1" -- "n"  grade
-course "1" -- "n"  tests
-teachers "n" -- "n"  course
-term "1" -- "n"  course
-students "n" -- "n"  term
-teachers "n" -- "n"  term
 teachers "n" -- "1"  department
-teachers "1" -- "n"  tests
-
+students "1" -- "n"  grade
+grade "1" -- "n"  grade_stand
+term "1" -- "n"  course
+term "n" -- "n"  users
+course "1" -- "n"  tests
 @enduml
