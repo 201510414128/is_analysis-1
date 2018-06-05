@@ -1,1 +1,13 @@
-
+@startuml
+title 基于GitHub的实验管理平台--选择课程用例的顺序图
+actor users
+alt 如果users是老师
+    users -> term : 获取学期编号（固定为本学期）
+    term -> course:获取所有课程列表，供老师选择
+    teachers <-- course: 返回老师所选课程列表
+else 如果users是学生
+    users -> term : 获取学期编号（固定为本学期）
+    term -> course:获取所有课程列表，供学生选择
+    students <-- course: 返回学生所选课程列表
+end
+@enduml
