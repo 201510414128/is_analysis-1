@@ -39,7 +39,7 @@
             "total": 11,
             "data": [
                 {"GRADE_ID": "1",
-                 "TEST_ID": "201301",
+                 "TEST_ID": "3",
                  "STANDARD": "实验条理清晰",
                  "WEIGHT": "30",
                  "GRADE": "90"},
