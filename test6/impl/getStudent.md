@@ -2,7 +2,7 @@
 <!-- 禁止MD033类型的警告 https://www.npmjs.com/package/markdownlint -->
 
 # 接口：getStudents  [返回](../README.md)
-用例： [学生列表](../用例/学生列表.md)
+用例： [学生列表](../usecase/学生列表.md)
 
 - 权限：
     学生/访客：无法查看WEB_SUM
