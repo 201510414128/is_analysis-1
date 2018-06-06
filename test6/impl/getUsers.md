@@ -2,7 +2,7 @@
 <!-- 禁止MD033类型的警告 https://www.npmjs.com/package/markdownlint -->
 
 # 接口：getUsers  [返回](../README.md)
-用例： [修改用户信息](../用例/学生列表.md)
+用例： [修改用户信息](../usecase/修改用户信息.md)
 
 - 权限：
     访客：无法修改。
