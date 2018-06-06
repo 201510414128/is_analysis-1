@@ -1,13 +1,11 @@
 @startuml
 title 基于GitHub的实验管理平台--查看成绩用例的顺序图
-actor teachers
-actor students
-teachers -> term : 获取学期编号
-term->course : 获取课程编号
-course->students : 获取该课程下所有学生
-students -> grades: 查看所有实验的成绩和评语
-grades -> tests
-tests-> grand_stand
-grand_stand --> students:每个实验的信息、成绩和评语
-grand_stand --> teachers:每个实验的信息、成绩和评语
+actor users
+users -> students : 输入学号
+students -> grades : 获取所有成绩列表
+grades -> terms : 获取学期编号
+terms -> courses : 获取课程编号
+courses -> tests : 获取实验
+tests -> grades_standard : 获取评分标准选项
+grades_standard --> users:每个实验的信息、成绩和评语
 @enduml
