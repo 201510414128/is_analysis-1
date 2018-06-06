@@ -1,14 +1,14 @@
 @startuml
-title 基于GitHub的实验管理平台--评定成绩用例的顺序图
+title 基于GitHub的实验管理平台--评改成绩用例的顺序图
 actor teachers
 == 查看成绩 ==
 teachers -> students : 输入学号
 students -> grades : 获取所有成绩列表
-grades -> term : 获取学期编号
-term -> course : 获取课程编号
-course -> tests : 获取实验
-tests -> grand_stand : 获取评分标准选项
-grand_stand --> teachers:每个实验的信息、成绩和评语
-== 评定成绩 ==
+grades -> terms : 获取学期编号
+terms -> courses : 获取课程编号
+courses -> tests : 获取实验
+tests -> grands_standard : 获取评分标准选项
+grands_standard --> teachers:每个实验的信息、成绩和评语
+== 评改成绩 ==
 teachers -> grades : 录入并提交每个实验的成绩
 @enduml
