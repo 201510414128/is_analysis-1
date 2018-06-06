@@ -2,7 +2,7 @@
 <!-- 禁止MD033类型的警告 https://www.npmjs.com/package/markdownlint -->
 
 # 接口：setUsers  [返回](../README.md)
-用例： [修改用户信息](../用例/修改用户信息.md)
+用例： [修改用户信息](../usecase/修改用户信息.md)
 
 - 功能：
     修改用户的GitHub用户名和密码。
