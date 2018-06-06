@@ -1,4 +1,4 @@
-?<!-- markdownlint-disable MD033-->
+<!-- markdownlint-disable MD033-->
 <!-- 禁止MD033类型的警告 https://www.npmjs.com/package/markdownlint -->
 
 # 接口：getGradesStandard  [返回](../README.md)
@@ -18,8 +18,18 @@
 - 请求方式 ：
     GET
 
+- 请求实例： 
+
+      {
+           "test_id":3
+      }
+      
 - 请求参数说明:
-    无
+
+  |参数名称|说明|
+  |:---------:|:--------------------------------------------------------|
+  |test_id|需获取评分标准的实验|
+
 
 - 返回实例：
 
