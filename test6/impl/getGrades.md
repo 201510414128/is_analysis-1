@@ -2,7 +2,7 @@
 <!-- 禁止MD033类型的警告 https://www.npmjs.com/package/markdownlint -->
 
 # 接口：getGrades  [返回](../README.md)
-用例： [查看成绩](../用例/学生列表.md)
+用例： [查看成绩](../usecase/查看成绩.md)
 
 - 权限：
     访客：无法查看成绩
