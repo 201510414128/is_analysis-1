@@ -2,12 +2,12 @@
 title 基于GitHub的实验管理平台--选择课程用例的顺序图
 actor users
 alt 如果users是老师
-    users -> term : 获取学期编号（固定为本学期）
-    term -> course:获取所有课程列表，供老师选择
-    teachers <-- course: 返回老师所选课程列表
+    users->teachers : 获取需选课程的数量
+    teachers -> terms : 获取学期编号（默认为本学期）
+    terms -> courses:获取该学期课程列表
+    teachers <-- courses: 返回老师所选课程列表
 else 如果users是学生
-    users -> term : 获取学期编号（固定为本学期）
-    term -> course:获取所有课程列表，供学生选择
-    students <-- course: 返回学生所选课程列表
+    users->teachers : 获取所有老师已选课程
+    students <-- teachers: 返回学生所选课程列表
 end
 @enduml
