@@ -1,0 +1,13 @@
+@startuml
+title 基于GitHub的实验管理平台--学生列表用例的顺序图
+actor users
+alt 如果users是老师
+    users -> teachers
+	teachers --> users: 获取信息
+    users -> teachers: 提交并修改信息
+else 如果users是students
+    users -> students
+    students --> users: 获取信息
+    users -> students: 提交并修改信息
+end
+@enduml
