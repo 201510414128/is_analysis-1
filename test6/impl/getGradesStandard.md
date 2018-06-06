@@ -16,7 +16,7 @@
    接口基本地址/v1/api/getGradesStandard
 
 - 请求方式 ：
-    GET
+    POST
 
 - 请求实例： 
 
