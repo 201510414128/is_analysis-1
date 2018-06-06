@@ -36,7 +36,8 @@
             "info": null,
             "total": 11,
             "data": [
-                {"TEST_ID": "201301",
+                {"STUDENT_ID": "20130103",
+                "TEST_ID": "201301",
                  "GRADE_SUM": "1，2，3",
                  "MEMO": "该生此次实验...",
                  "UPDATE_DATE": "2018-06-03 12:23:93"},
@@ -54,6 +55,7 @@
   |info|返回结果说明信息|
   |total|返回实验成绩数量|
   |data|所有实验成绩的数组|
+  |STUDENT_ID|学生学号|
   |TEST_ID|实验编号|
   |GRADE_SUM|评分标准项的汇总|
   |MEMO|实验评语|
