@@ -1,1 +1,10 @@
-
+@startuml
+title 基于GitHub的实验管理平台--发布实验用例的顺序图
+actor teachers
+teachers -> terms : 获取学期编号
+terms -> courses : 获取课程编号
+courses -> tests
+tests->grades_standard : 获取实验评分标准
+grades_standard --> teachers : 返回界面
+teachers -> tests : 发布实验
+@enduml
