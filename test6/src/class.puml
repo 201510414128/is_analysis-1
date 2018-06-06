@@ -1,1 +1,70 @@
-
+@startuml
+title 基于GitHub的实验管理平台--类图
+class users {
+    <b>user_id</b> （用户ID）
+    name （用户真实姓名）
+    github_username （用户GitHub账号）
+    update_date （用户GitHub账号修改日期）
+    password （用户密码）
+    disable （用户是否禁用）
+}
+class teachers{
+    <b>teacher_id</b> （老师工号）
+    department （老师所属部门）
+    course_num  （老师需要选的课程数量）
+    course_sum   （老师所选课程汇总）
+}
+class students{
+    <b>student_id</b> （学生学号）
+    class （学生所属班级）
+    course_num  （学生需要选的课程数量）
+    course_sum （学生所选课程汇总）
+    web_sum  （GitHub网址是否正确）
+}
+users <|- students
+users <|-- teachers
+class courses{
+    <b>course_id</b>  （课程编号）
+    <b>term_id</b>  （学期编号）
+    course_name  （课程名称）
+    course_detail  （课程详情）
+    stu_num  （最大学生人数）
+    tea_num  （最大老师人数）
+    stu_time_start  （学生选课开始日期）
+    stu_time_end  （学生选课结束日期）
+    tea_time_start  （老师选课开始日期）
+    tea_time_end  （老师选课结束日期）
+}
+class tests {
+    <b>test_id</b> （实验编号）
+    <b>term_id</b> （学期编号）
+    <b>course_id</b> （课程编号）
+    <b>teacher_id</b> （发布实验的老师工号）
+    test_title （实验名称）
+    test_content （实验内容）
+}
+class grades {
+    <b>student_id</b> （学生学号）
+    <b>test_id</b> （实验编号）
+    grade_sum （评分标准汇总）
+    memo （评价）
+    update_date （评改日期）
+}
+class grades_standard{
+    <b>grade_id</b> （评分标准编号）
+    <b>test_id</b> （所属的实验编号）
+    standrard （评分标准）
+    weight （分数所占比重）
+    grade（所得分数）
+}
+class terms{
+    <b>term_id</b> （学期编号）
+    term_num （第几学期）
+}
+terms "1" -- "n"  courses
+students "1" -- "n" grades
+teachers "1" -- "n" tests
+tests "1" -- "n" grades_standard
+tests "1" -- "n" grades
+courses "1" -- "n" tests
+@enduml
