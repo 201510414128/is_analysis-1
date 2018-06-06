@@ -2,7 +2,7 @@
 <!-- 禁止MD033类型的警告 https://www.npmjs.com/package/markdownlint -->
 
 # 接口：setTests  [返回](../README.md)
-用例： [发布实验](../用例/登出.md)
+用例： [发布实验](../usecase/发布实验.md)
 
 - 功能：
     添加发布的实验。
