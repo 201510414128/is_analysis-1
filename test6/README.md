@@ -18,6 +18,7 @@
 ## 2. 系统总体结构
 ![](系统总体结构.png)
 
+界面设计参见：https://jiangzijie123.github.io/is_analysis/test6/ui/index.html
 
 ## 3. 用例图设计 [源码](src/UseCase.puml)
 ![](UseCase.png)
@@ -29,7 +30,7 @@
 - ### [参见数据库设计](数据库设计.md)
 
 ## 6. 用例及界面详细设计
-- ### [“学生列表”用例](./usecase/学生列表.md),[界面](https://jiangzijie123.github.io/is_analysis/ui/学生列表.html)
+- ### [“学生列表”用例](./usecase/学生列表.md),[界面](https://jiangzijie123.github.io/is_analysis/test6/ui/学生列表.html)
 - ### [“评改成绩”用例](./usecase/评改成绩.md),[界面]()
 - ### [“查看成绩”用例](./usecase/查看成绩.md),[界面]()
 - ### [“选择课程”用例](./usecase/选择课程.md),[界面]()
